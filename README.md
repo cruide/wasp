@@ -11,7 +11,8 @@
 - Удобный интерфейс для работы с Базой Данных;
 - Поддержка мульти-язычности
 
-Обратите внимание на то, что в данной ветке для работы с базой используется Laravel Eloquent ORM
+Обратите внимание на то, что в Wasp для работы с базой используется Laravel Eloquent ORM.
+Также для удобства предусмотрена возможность "собрать" ядро в один PHAR файл (сборщик в комплекте).
 
 ## Структура приложения
 ### Директории:
@@ -136,20 +137,22 @@ class User extends \Wasp\Model
 {
     public function profile()
     {
-        return $this->hasOne('\\App\\Models\\UsersProfile')->first();
+        return $this->hasOne('\\App\\Models\\UsersProfile');
     }
     
     public function session()
     {
-        return $this->hasOne('\\App\\Models\\UsersSession')->first();
+        return $this->hasOne('\\App\\Models\\UsersSession');
     }
     
     public function group()
     {
-        return $this->belongsTo('\\App\\Models\\UsersGroup', 'group_id')->first();
+        return $this->belongsTo('\\App\\Models\\UsersGroup', 'group_id');
     }
 }
 ```
+
+
 
 Initiator: Тищенко Александр
 

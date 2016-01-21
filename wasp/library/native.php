@@ -5,9 +5,9 @@
 * @package    WASP - MVC micro-framework for PHP application
 */
 
-  class NativeException extends \Wasp\Exception {}  
+  class NativeException extends Exception {}  
 
-  class Native extends \Wasp\stdObject
+  class Native extends stdObject
   {
       public static $correctXHTML = false;
       private static $_globals;

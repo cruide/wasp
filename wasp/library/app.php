@@ -5,9 +5,7 @@
 * @package    WASP - MVC micro-framework for PHP application
 */
 
-use \Wasp\Native;
-
-final class AppException extends \Wasp\Exception { }
+final class AppException extends Exception { }
 
 final class App extends \stdClass
 {
@@ -20,11 +18,11 @@ final class App extends \stdClass
             require(APP_DIR . DIR_SEP . 'bootstrap.php');
         }
         
-        $router     = \Wasp\Router::mySelf();
-        $input      = \Wasp\Input::mySelf();
+        $router     = Router::mySelf();
+        $input      = Input::mySelf();
         $controller = $router->getControllerName();
 
-        \Wasp\I18n::mySelf();
+        I18n::mySelf();
         
         if( is_controller_exists($controller) ) {
             $className = '\\App\\Controllers\\' . $controller;
@@ -45,11 +43,11 @@ final class App extends \stdClass
     {
         $this->_execute_hooks();
         
-        $method = \Wasp\Router::mySelf()->getMethodName();
+        $method = Router::mySelf()->getMethodName();
 
-        if( \Wasp\Input::mySelf()->isGet() && method_exists(self::$controller, 'get' . $method) ) {
+        if( Input::mySelf()->isGet() && method_exists(self::$controller, 'get' . $method) ) {
             $method = 'get' . $method;
-        } else if( \Wasp\Input::mySelf()->isPost() && method_exists(self::$controller, 'post' . $method) ) {
+        } else if( Input::mySelf()->isPost() && method_exists(self::$controller, 'post' . $method) ) {
             $method = 'post' . $method;
         } else if( method_exists(self::$controller, 'action' . $method) ) {
             $method = 'action' . $method;
@@ -65,7 +63,7 @@ final class App extends \stdClass
 
             $this->_prepare();
             
-            $params = \Wasp\Input::mySelf()->get();
+            $params = Input::mySelf()->get();
             
             if( !empty($params) ) {
                 $content = call_user_func_array([self::$controller, $method], $params);
@@ -91,7 +89,7 @@ final class App extends \stdClass
 // -------------------------------------------------------------------------------------
     private function _prepare()
     {
-        $theme_url = \Wasp\Theme::mySelf()->getThemeUrl();
+        $theme_url = Theme::mySelf()->getThemeUrl();
         
         Native::assignGlobal('base_url'       , BASE_URL);
         Native::assignGlobal('content_url'    , CONTENT_URL);
@@ -106,9 +104,9 @@ final class App extends \stdClass
         Native::assignGlobal('js_url'         , $theme_url . '/js');
         Native::assignGlobal('images_url'     , $theme_url . '/images');
 
-        Native::assignGlobal('do_request'     , \Wasp\Router::mySelf()->getAction());
-        Native::assignGlobal('controller_name', \Wasp\Router::mySelf()->getControllerName());
-        Native::assignGlobal('method_name'    , \Wasp\Router::mySelf()->getMethodName());
+        Native::assignGlobal('do_request'     , Router::mySelf()->getAction());
+        Native::assignGlobal('controller_name', Router::mySelf()->getControllerName());
+        Native::assignGlobal('method_name'    , Router::mySelf()->getMethodName());
         
         $config = cfg('config')->application;
         if( !empty($config->url_suffix) ) {
@@ -149,7 +147,7 @@ final class App extends \stdClass
                         wasp_error( $e->getMessage() );
                     }
                     
-                    if( $tmp instanceof \Wasp\Hook ) {
+                    if( $tmp instanceof Hook ) {
                         $tmp->execute();
                     } else {
                         wasp_error(

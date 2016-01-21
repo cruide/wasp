@@ -12,10 +12,10 @@ abstract class Library extends \stdClass
     public function __construct()
     {
         $this->config  = cfg('config');
-        $this->cookie  = \Wasp\Cookie::mySelf();
-        $this->router  = \Wasp\Router::mySelf();
-        $this->input   = \Wasp\Input::mySelf();
-        $this->session = \Wasp\Session::mySelf();
+        $this->cookie  = Cookie::mySelf();
+        $this->router  = Router::mySelf();
+        $this->input   = Input::mySelf();
+        $this->session = Session::mySelf();
 
         if( method_exists($this, '_prepare') ) {
             $this->_prepare();
@@ -25,5 +25,6 @@ abstract class Library extends \stdClass
     public function __destruct()
     {
         unset($this->config, $this->cookie, $this->session, $this->input, $this->router, $this->db);
+        memory_clear();
     }
 }

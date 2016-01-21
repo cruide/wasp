@@ -172,9 +172,9 @@
           if( !empty($theme_name) && is_dir(THEMES_DIR . DIR_SEP . $theme_name) ) {
               $this->_theme_name = $theme_name;
               
-              $view = \Wasp\App::$controller->getUi();
+              $view = App::$controller->getUi();
 
-              if( null !== $view && $view instanceof \Wasp\Native ) {
+              if( null !== $view && $view instanceof Native ) {
                   if( !is_dir(TEMP_DIR . DIR_SEP . $theme_name . DIR_SEP . 'views') ) {
                       wasp_mkdir( TEMP_DIR . DIR_SEP . $theme_name . DIR_SEP . 'views' );
                   }
@@ -258,7 +258,7 @@
 
               http_cache_off();
 
-              if( !\Wasp\Cookie::isSaved() ) \Wasp\Cookie::mySelf()->save();
+              if( !Cookie::isSaved() ) Cookie::mySelf()->save();
               if( wasp_strlen($content) > 102400 ) @ini_set('zlib.output_compression', 1);
 
               echo $this->getDebugInfo($content);
@@ -266,7 +266,7 @@
 			  return;
           }
 
-          $templater = new \Wasp\Native( $this->getThemePath() );
+          $templater = new Native( $this->getThemePath() );
 
           if( array_count($this->_assigns) > 0 ) {
               foreach($this->_assigns as $key=>$val) {
@@ -290,7 +290,7 @@
               }
           }
           
-          if( !\Wasp\Cookie::isSaved() ) \Wasp\Cookie::mySelf()->save();
+          if( !Cookie::isSaved() ) Cookie::mySelf()->save();
           if( wasp_strlen($out) > 102400 ) ini_set('zlib.output_compression', 1);
           
           unset($templater);

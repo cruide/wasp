@@ -5,8 +5,8 @@
 * @package    WASP - MVC micro-framework for PHP application
 */
 
-class CookieException extends \Wasp\Exception {}
-class Cookie extends \Wasp\stdObject
+class CookieException extends Exception {}
+class Cookie extends stdObject
 {
     private static $_instance, $_saved, $_need_save;
 // -------------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ class Cookie extends \Wasp\stdObject
         if( self::$_saved === null ) self::$_saved = false;
         if( self::$_need_save === null ) self::$_need_save = false;
 
-        $tmp = \Wasp\Input::mySelf()->cookie();
+        $tmp = Input::mySelf()->cookie();
 
         if( array_count($tmp) > 0 ) {
             if( array_key_isset('PHPSESSID', $tmp)  ) {

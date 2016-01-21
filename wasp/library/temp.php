@@ -5,7 +5,7 @@
 * @package    WASP - MVC micro-framework for PHP application
 */
 
-  class TempException extends \Wasp\Exception {}
+  class TempException extends Exception {}
 
   class Temp extends \stdClass
   {

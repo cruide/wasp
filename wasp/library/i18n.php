@@ -47,7 +47,7 @@ final class I18n extends \stdClass
 
         unset($config, $DL);
 
-        $cookie_lang = \Wasp\Cookie::mySelf()->get('LANG');
+        $cookie_lang = Cookie::mySelf()->get('LANG');
         
         if( !empty($cookie_lang) && array_key_isset($cookie_lang, $this->lagnuages) ) {
             $this->CURRENT_LANG = $cookie_lang;
@@ -56,7 +56,7 @@ final class I18n extends \stdClass
         /**
         * Загружаем языковые пакеты
         */
-        $this->strings     = new \Wasp\stdObject();
+        $this->strings     = new stdObject();
         $default_lang_file = wasp_strtolower( $this->DEFAULT_LANG . '.php' );
 
         if( is_dir(LANGUAGE_DIR) && is_file(LANGUAGE_DIR . DIR_SEP . $default_lang_file) ) {
@@ -88,7 +88,7 @@ final class I18n extends \stdClass
         }
         
         $this->getControllerLang( 
-            \Wasp\Router::mySelf()->getControllerName() 
+            Router::mySelf()->getControllerName() 
         );
     }
 // -----------------------------------------------------------------------------
@@ -152,7 +152,7 @@ final class I18n extends \stdClass
         $lang_id = strtoupper($lang_id);
         
         if( array_key_isset($lang_id, $this->lagnuages) ) {
-            \Wasp\Cookie::mySelf()->set('LANG', $lang_id);
+            Cookie::mySelf()->set('LANG', $lang_id);
         }
         
         return $this;

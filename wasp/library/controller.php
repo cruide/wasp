@@ -20,12 +20,12 @@ abstract class Controller extends \stdClass
     public function __construct()
     {
         $this->config  = cfg('config');
-        $this->session = \Wasp\Session::mySelf();
-        $this->input   = \Wasp\Input::mySelf();
-        $this->cookie  = \Wasp\Cookie::mySelf();
-        $this->layout  = \Wasp\Theme::mySelf();
-        $this->router  = \Wasp\Router::mySelf();
-        $this->ui      = new \Wasp\Native( $this->layout->getThemePath() . DIR_SEP . 'views' );
+        $this->session = Session::mySelf();
+        $this->input   = Input::mySelf();
+        $this->cookie  = Cookie::mySelf();
+        $this->layout  = Theme::mySelf();
+        $this->router  = Router::mySelf();
+        $this->ui      = new Native( $this->layout->getThemePath() . DIR_SEP . 'views' );
     }
 // -------------------------------------------------------------------------------------
     public function getUi()

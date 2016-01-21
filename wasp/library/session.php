@@ -5,9 +5,7 @@
 * @package    WASP - MVC micro-framework for PHP application
 */
 
-  use Wasp\stdObjectException;
-
-  class Session extends \Wasp\stdObject
+  class Session extends stdObject
   {       
       protected $sessionId;
       private static $_instance;

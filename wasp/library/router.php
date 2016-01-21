@@ -5,7 +5,7 @@
 * @package    WASP - MVC micro-framework for PHP application
 */
 
-final class RouterException extends \Wasp\Exception { }
+final class RouterException extends Exception { }
 
 final class Router extends \stdClass
 {

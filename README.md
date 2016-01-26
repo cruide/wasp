@@ -11,8 +11,7 @@
 - Удобный интерфейс для работы с Базой Данных;
 - Поддержка мульти-язычности
 
-Обратите внимание на то, что в Wasp для работы с базой используется Laravel Eloquent ORM.
-Также для удобства предусмотрена возможность "собрать" ядро в один PHAR файл (сборщик в комплекте).
+Обратите внимание на то, что в данной ветке для работы с базой используется [Laravel Eloquent ORM](https://github.com/LaravelRUS/docs/blob/5.1/eloquent.md)
 
 ## Структура приложения
 ### Директории:
@@ -97,11 +96,11 @@ class Users extexnds \Wasp\Controller
 
 ```PHP
 <?php return [
-    ['regexp' => '^user\/([0-9]+)$', 'replace' => 'users/edit/id/$1'],
+    ['regexp' => '^edit\/([0-9]+)$', 'replace' => 'users/edit/id/$1'],
 ];
 ```
 
-Из примера видно, что URL вида: http://my-site.local/user/20
+Из примера видно, что URL вида: http://my-site.local/edit/20
 
 Будет интерпретирован как: http://my-site.local/users/edit/id/20
 
@@ -122,12 +121,26 @@ class Index extends \Wasp\Controller
     {
         return $this->ui->fetch('index');    
     }
+
+    public function get_Edit( $user_id = null )
+    {
+
+    }
+
+    public function post_Edit( $user_id = null )
+    {
+
+    }
 }
 ```
 
+В данном примере видно, что можно задавать тип запроса. action - это любой тип запроса.
+
+
+
 ## Работа с базой данных
 
-Для работы с базой данных используется библиотека Laravel Eloquent ORM
+Для работы с базой данных используется библиотека [Laravel Eloquent ORM](https://github.com/LaravelRUS/docs/blob/5.1/eloquent.md)
 
 ### Пример модели
 ```PHP
@@ -151,8 +164,6 @@ class User extends \Wasp\Model
     }
 }
 ```
-
-
 
 Initiator: Тищенко Александр
 

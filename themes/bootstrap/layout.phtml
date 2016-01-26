@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="generator" content="<?=$framework?>">
+        <meta name="author" content="Tishchenko Alexander">
+        <!--<link rel="shortcut icon" href="<?=$theme_url?>/favicon.ico">-->
+
+        <title>Wasp php mini-framework</title>
+
+        <script type="text/javascript" src="<?=$js_url?>/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="<?=$base_url?>/js"></script>
+
+        <!-- Bootstrap core CSS -->
+        <!--<link href="<?=$css_url?>/bootstrap.min.css" rel="stylesheet" />-->
+        <link href="<?=$css_url?>/bootstrap.spacelab.min.css" rel="stylesheet" />
+        <link href="<?=$css_url?>/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="<?=$css_url?>/font-awesome.min.css" rel="stylesheet" />
+
+        <!-- Custom styles for this template -->
+        <link href="<?=$css_url?>/style.css" rel="stylesheet">
+
+        <!-- Just for debugging purposes. Don't actually copy this line! -->
+        <!--[if lt IE 9]>
+        <script src="<?=$js_url?>/ie8-responsive-file-warning.js"></script>
+        <![endif]-->
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="<?=$js_url?>/html5shiv.js"></script>
+        <script src="<?=$js_url?>/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="header" style="margin-bottom: 0;">
+            
+                <ul class="nav nav-pills pull-right">
+                    <li<?php if( $do_request == 'index/default' ) { ?> class="active"<?php } ?>>
+                        <a href="<?=$base_url?>">
+                            <span class="glyphicon glyphicon-home"></span>&nbsp;
+                            <?=ufl('home')?>
+                        </a>
+                    </li>
+
+                    <?php if( !empty($authLib) && $authLib->isAuth() ): ?>
+                        <?php if( $authLib->isAdmin() ): ?>
+                    <li class="dropdown<?php if( $controller_name == 'users' ) echo ' active'; ?>">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="<?=make_url('/users')?>">
+                            <span class="fa fa-users"></span>&nbsp; 
+                            <?=ufl('users')?>&nbsp; 
+                            <span class="caret"></span>
+                        </a>
+                        
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<?=make_url('/users')?>">
+                                    <span class="fa fa-list"></span>&nbsp;
+                                    <?=ufl('list')?>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="<?=make_url('/users/add')?>">
+                                    <span class="fa fa-user-plus"></span>&nbsp;
+                                    <?=ufl('add')?>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                        <?php endif; ?>
+                    
+                    <li<?php if( $do_request == 'profile/default' ) { ?> class="active"<?php } ?>>
+                        <a href="<?=make_url('/profile')?>">
+                            <i class="fa fa-user"></i>&nbsp;
+                            <?=ufl('profile')?>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?=make_url('/auth/signout')?>">
+                            <span class="glyphicon glyphicon-log-out"></span>&nbsp;
+                            <?=ufl('exit')?>
+                        </a>
+                    </li>
+                    <?php else: ?>
+                    <li>
+                        <a href="<?=make_url('/auth')?>">
+                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                            <?=ufl('enter')?>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+                </ul>
+                
+                <h1 class="text-muted">
+                    <img src="<?=$images_url?>/wasp.png" alt="wasp" style="width: 38px;" />
+                    WASP
+                </h1>
+            </div>
+
+            <div class="row marketing" id="main-content" style="margin-top: 0;">
+                <?php if( !empty($redirect_message) ): ?>
+                <div class="alert alert-info">
+                    <?=$redirect_message?>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                </div>
+                <?php endif; ?>
+
+                <?php if( !empty($redirect_error) ): ?>
+                <div class="alert alert-danger">
+                    <?=$redirect_error?>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                </div>
+                <?php endif; ?>
+
+                <?=$content?>
+            </div>
+
+            <div class="footer">
+                <p>Wasp PHP micro-framework by Alex Tisch &copy; 2015, <!-- DEBUG-INFO --></p>
+            </div>
+        </div> <!-- /container -->
+        <div id="body-script-buffer"></div>
+
+        <script type="text/javascript" src="<?=$js_url?>/bootstrap.min.js"></script>
+        <script type="text/javascript">$(function(){ $('.alert').alert(); });</script>
+    </body>
+</html>

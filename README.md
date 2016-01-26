@@ -19,8 +19,8 @@
 - app
     - controllers
         - index.php
-    - hooks
-        - myhook.php
+    - services
+        - my_service.php
     - library
     - i18n
         - en.php

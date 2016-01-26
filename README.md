@@ -165,6 +165,14 @@ class User extends \Wasp\Model
 }
 ```
 
+## PHAR
+
+Для более удобного использования, я предусмотрел возможность собрать ядро wasp в виде PHAR архива для дальнейшего использования.
+
+В index.php пропишите require('wasp.phar') вместо require('wasp/bootstrap.php') и всё.
+
+
+
 Initiator: Тищенко Александр
 
 Date of inception: 01/02/2015

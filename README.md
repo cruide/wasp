@@ -70,7 +70,7 @@ $id = \Wasp\Input::MySelf()->get('id');
 
 class Users extexnds \Wasp\Controller
 {
-    public function action_Edit()
+    public function actionEdit()
     {
         $id =  $this->input->get('id');
     }
@@ -83,7 +83,7 @@ class Users extexnds \Wasp\Controller
 <?php
 class Users extexnds \Wasp\Controller
 {
-    public function action_Edit( $id = null )
+    public function actionEdit( $id = null )
     {
         
     }
@@ -112,22 +112,26 @@ class Users extexnds \Wasp\Controller
 
 class Index extends \Wasp\Controller
 {
+    /* Будет запущен перед любым методом контроллера */
     public function _before()
     {
         
     }
     
-    public function action_Default()
+    /* Для любых запросов */
+    public function actionDefault()
     {
         return $this->ui->fetch('index');    
     }
 
-    public function get_Edit( $user_id = null )
+    /* Только для GET запросов */
+    public function getEdit( $user_id = null )
     {
 
     }
 
-    public function post_Edit( $user_id = null )
+    /* Только для POST запросов */
+    public function postEdit( $user_id = null )
     {
 
     }

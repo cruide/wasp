@@ -1,6 +1,8 @@
 # WASP PHP5 MVC micro-framework.
 Маленький и быстрый PHP 5.4+ MVC micro-framework.
 
+Обращаю внимание на то, что оснавная разработка ведётся на [Bitbucket](https://bitbucket.org/cruide/wasp)
+
 Вам необходимо написать простое веб-приложение легко и быстро?
 
 Нет ничего проще! WASP для этого и создан!

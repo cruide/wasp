@@ -155,6 +155,11 @@ class Index extends \Wasp\Controller
 - put - для PUT запросов;
 - delete - для DELETE запросов;
 
+Метод anyDefault обязателен. Он используется как метод по умолчанию если в запросе не указать метод.
+
+Т.е. если запрос будет http://my-site.local/users, то это будет интерпритироваться как http://my-site.local/users/default .
+
+
 ## Работа с базой данных
 
 Для работы с базой данных используется библиотека [Laravel Eloquent ORM](https://github.com/LaravelRUS/docs/blob/5.1/eloquent.md)

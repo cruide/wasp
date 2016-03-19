@@ -188,6 +188,12 @@ class User extends \Wasp\Model
 
 Для более удобного использования, я предусмотрел возможность собрать ядро wasp в виде PHAR архива.
 
+Для этого используйте файл make-phar.php
+
+# Внимание!
+
+Для создания архивов PHAR, Вам необходимо разрешить создание PHAR в php.ini
+
 В index.php пропишите require('/путь/wasp.phar') вместо require('wasp/bootstrap.php') и всё.
 
 ## P.S.

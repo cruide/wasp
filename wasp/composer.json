@@ -1,0 +1,8 @@
+{
+    "require": {
+        "Illuminate/Database": "^5.2",
+        "Illuminate/Events": "^5.2",
+	"smarty/smarty": "~3.1",
+        "phpmailer/phpmailer": "^5.2"
+    }
+}

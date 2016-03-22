@@ -16,7 +16,8 @@
     'clear'      => 'clear',
     'comment'    => 'comment',
     'cloud'      => 'cloud',
-    'color'      => 'color',
+    'code'       => 'code',
+    'confirm'    => 'confirm',
 
     'date'       => 'date',
     'delete'     => 'delete',
@@ -29,6 +30,7 @@
     'enter'      => 'enter',
     'error'      => 'error',
     'exit'       => 'exit',
+    'email'      => 'email',
 
     'find'       => 'find',
     'filter'     => 'filter',
@@ -89,6 +91,7 @@
     'search'     => 'search',
     'statistic'  => 'statistic',
     'save'       => 'save',
+    'send'       => 'send',
 
     'task'       => 'task',
     'tasks'      => 'tasks',

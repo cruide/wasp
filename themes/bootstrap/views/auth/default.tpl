@@ -4,7 +4,7 @@
     <h2 class="form-signin-heading">{'authorization'|l}</h2>
 
     {if not empty($errors)}
-        {foreach $errors as $key=>$error}
+        {foreach from=$errors key=key item=error}
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong>{$key}:</strong> {$error}

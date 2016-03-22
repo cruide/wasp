@@ -11,11 +11,13 @@
 - Удобный интерфейс для работы с Базой Данных;
 - Поддержка мульти-язычности
 
-Обратите внимание на то, что в данной ветке для работы с базой используется [Laravel Eloquent ORM](https://github.com/LaravelRUS/docs/blob/5.1/eloquent.md)
+## База данных
+
+Для работы с базой данных используется [Laravel Eloquent ORM](https://github.com/LaravelRUS/docs/blob/5.1/eloquent.md), что делает работу с базой данных простой и удобной.
 
 ## Шаблонизатор Smarty
 
-Для проекта в качестве шаблонизатора используется [Smarty template engine](http://smarty.net)
+Для проекта, в качестве шаблонизатора используется [Smarty template engine](http://smarty.net)
 
 
 ## Структура приложения
@@ -195,7 +197,7 @@ class User extends \Wasp\Model
 
 Для этого используйте файл make-phar.php
 
-# Внимание!
+### Внимание!
 
 Для создания архивов PHAR, Вам необходимо разрешить создание PHAR в php.ini
 
@@ -205,3 +207,5 @@ class User extends \Wasp\Model
 
 Прошу не судить строго. Проект в начале своего пути и постоянно дорабатывается.
 
+## Автор
+Тищенко Александр / info@alex-tisch.ru

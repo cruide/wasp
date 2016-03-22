@@ -10,7 +10,7 @@
 
         <title>Wasp php mini-framework</title>
 
-        <script type="text/javascript" src="{$js_url}/jquery-2.2.1.min.js"></script>
+        <script type="text/javascript" src="{$js_url}/jquery-2.2.2.min.js"></script>
         <script type="text/javascript" src="{$base_url}/js"></script>
 
         <!-- Bootstrap core CSS -->
